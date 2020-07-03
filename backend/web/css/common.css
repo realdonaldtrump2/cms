@@ -1,0 +1,245 @@
+.btn-outline {
+    color: inherit;
+    background-color: transparent;
+    transition: all .5s;
+    margin: 0 !important;
+}
+
+.btn-primary.btn-outline {
+    color: #428bca;
+}
+
+.btn-success.btn-outline {
+    color: #5cb85c;
+}
+
+.btn-info.btn-outline {
+    color: #5bc0de;
+}
+
+.btn-warning.btn-outline {
+    color: #f0ad4e;
+}
+
+.btn-danger.btn-outline {
+    color: #d9534f;
+}
+
+.btn-primary.btn-outline:hover, .btn-success.btn-outline:hover, .btn-info.btn-outline:hover, .btn-warning.btn-outline:hover, .btn-danger.btn-outline:hover {
+    color: white;
+}
+
+table.dataTable.no-footer {
+    border-bottom: none !important;
+}
+
+.select2-container--krajee .select2-selection--single {
+    line-height: 20px;
+}
+
+.select2-container--krajee .select2-selection__clear {
+    display: none;
+}
+
+.select2-container--krajee .select2-selection__rendered {
+    padding: 0 !important;
+    margin-left: 0 !important;
+}
+
+.avatar-view {
+    height: 100px;
+    width: 100px;
+    border: 3px solid #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .15);
+    cursor: pointer;
+}
+
+.avatar-view img {
+    width: 100%;
+}
+
+.avatar-body {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.avatar-upload {
+    overflow: hidden;
+}
+
+.avatar-upload label {
+    display: block;
+    float: left;
+    clear: left;
+    width: 100px;
+}
+
+.avatar-upload input {
+    display: block;
+    margin-left: 110px;
+}
+
+.avatar-alert {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.avatar-wrapper {
+    height: 364px;
+    width: 100%;
+    margin-top: 15px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, .25);
+    background-color: #fcfcfc;
+    overflow: hidden;
+}
+
+.avatar-wrapper img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+.avatar-preview {
+    float: left;
+    margin-top: 15px;
+    margin-right: 15px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.avatar-preview:hover {
+    border-color: #ccf;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .15);
+}
+
+.avatar-preview img {
+    width: 100%;
+}
+
+.preview-lg {
+    height: 184px;
+    width: 184px;
+    margin-top: 15px;
+}
+
+.preview-md {
+    height: 100px;
+    width: 100px;
+}
+
+.preview-sm {
+    height: 50px;
+    width: 50px;
+}
+
+.main-container-body {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 3px;
+}
+
+@media (min-width: 992px) {
+    .avatar-preview {
+        float: none;
+    }
+}
+
+.avatar-btns {
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.avatar-btns .btn-group {
+    margin-right: 5px;
+}
+
+table, th > a {
+    font-size: 14px !important;
+    color: #333333 !important;
+}
+
+.detailModalButton {
+    display: inline-block;
+    margin-right: 10px !important;
+}
+
+.dataTables_filter input {
+    border: 1px solid rgb(204, 204, 204) !important;
+}
+
+.ms-container {
+    width: 100% !important;
+}
+
+.ms-list {
+    width: 400px !important;
+    min-height: 1000px !important;
+}
+
+.ms-elem-selectable, .ms-elem-selection {
+    min-height: 65px !important;
+    padding: 10px !important;
+}
+
+.function-button-container {
+    margin-bottom: 20px !important;
+}
+
+.popover {
+    max-width: 400px !important;
+}
+
+.printPreview {
+    color: #333333 !important;
+}
+
+#previewModal .modal-content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+#previewModal .modal-body {
+    overflow-y: scroll;
+    position: absolute;
+    top: 55px;
+    bottom: 65px;
+    width: 100%;
+}
+
+#previewModal .modal-header .close {
+    margin-right: 15px;
+}
+
+#previewModal .modal-footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background: #ffffff;
+}
+
+.cursorPointer {
+    cursor: pointer;
+}
+
+.kv-move-left, .kv-move-right, .kv-remove {
+    display: none;
+}
+
+.table-hover > tbody > tr:hover {
+    background-color: #d9edf7 !important;
+}
+
+.response-form-label {
+    text-align: right;
+}
+
+@media screen and (max-width: 768px) {
+    .response-form-label {
+        text-align: center;
+    }
+}

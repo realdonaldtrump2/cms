@@ -1,0 +1,15 @@
+node_modules
+coverage
+npm-debug.log*
+
+.DS_Store
+.cache
+.vscode
+
+*.bak
+*.log
+*.tem
+*.temp
+#.swp
+*.*~
+~*.*

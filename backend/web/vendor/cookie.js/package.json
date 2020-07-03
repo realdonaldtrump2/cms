@@ -1,0 +1,50 @@
+{
+  "name": "cookiejs",
+  "version": "1.0.25",
+  "description": "A simple, lightweight JavaScript API for handling browser cookies.",
+  "main": "dist/cookie.js",
+  "module": "dist/cookie.esm.js",
+  "types": "index.d.ts",
+  "files": [
+    "dist/*.js",
+    "index.d.ts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaywcjlove/cookie.js.git"
+  },
+  "keywords": [
+    "cookiejs",
+    "cookie",
+    "cookies"
+  ],
+  "author": "kenny wong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaywcjlove/cookie.js/issues"
+  },
+  "scripts": {
+    "test": "jest --coverage",
+    "test:watch": "jest --coverage --watch",
+    "build": "node script/build.js",
+    "watch": "node script/watch.js"
+  },
+  "homepage": "https://github.com/jaywcjlove/cookie.js",
+  "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-transform-async-to-generator": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "bannerjs": "^1.0.5",
+    "colors-cli": "^1.0.18",
+    "jest": "23.6.0",
+    "rollup": "^0.66.1",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-commonjs": "^9.1.8",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "uglify-js": "^3.4.9",
+    "zlib": "^1.0.5"
+  }
+}
