@@ -63,6 +63,18 @@ class SiteController extends BaseController
                         'roles' => ['@'],
                         'verbs' => ['get', 'post'],
                     ],
+                    [
+                        'actions' => ['modify-info'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                        'verbs' => ['get', 'post'],
+                    ],
+                    [
+                        'actions' => ['test'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                        'verbs' => ['get', 'post'],
+                    ],
                 ]
             ]
         ];
@@ -74,6 +86,7 @@ class SiteController extends BaseController
      */
     public function actions()
     {
+
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
@@ -90,6 +103,7 @@ class SiteController extends BaseController
                 'offset' => 4, //设置字符偏移量 有效果
             ],
         ];
+
     }
 
 
@@ -100,6 +114,16 @@ class SiteController extends BaseController
     {
 
         $this->layout = false;
+
+    }
+
+
+    /**
+     * 测试
+     */
+    public function actionTest()
+    {
+
 
     }
 
