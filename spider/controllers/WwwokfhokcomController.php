@@ -4,14 +4,12 @@ namespace spider\controllers;
 
 
 use Yii;
-use GuzzleHttp\Client;
-use GuzzleHttp\Promise;
-use Psr\Http\Message\ResponseInterface;
-use GuzzleHttp\Exception\RequestException;
-use QL\QueryList;
 use common\models\AdultVideoActress;
 use common\models\AdultVideoActressDetail;
 use common\models\AdultVideoActressWork;
+use GuzzleHttp\Client;
+use GuzzleHttp\Promise;
+use QL\QueryList;
 
 
 class WwwokfhokcomController extends BaseController
