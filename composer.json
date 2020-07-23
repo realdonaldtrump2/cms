@@ -189,7 +189,8 @@
     "jaeger/querylist-curl-multi": "^4.0",
     "workerman/workerman": "^4.0",
     "yurunsoft/yurun-oauth-login": "^3.0",
-    "liaosp/express": "^2.0"
+    "liaosp/express": "^2.0",
+    "fukuball/jieba-php": "dev-master"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "~2.1.0",

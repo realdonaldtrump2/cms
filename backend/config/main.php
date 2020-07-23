@@ -95,6 +95,7 @@ $config = [
                 'logout' => 'site/logout',     //  退出
                 'modify-info' => 'site/modify-info',   //  修改密码
                 // 'reset-info' => 'site/reset-info',    //找回密码
+                'test' => 'site/test',    //  测试
 
                 // rbac管理
                 'role-index' => 'rbac/role-index',
