@@ -69,12 +69,6 @@ class SiteController extends BaseController
                         'roles' => ['@'],
                         'verbs' => ['get', 'post'],
                     ],
-                    [
-                        'actions' => ['test'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                        'verbs' => ['get', 'post'],
-                    ],
                 ]
             ]
         ];
@@ -114,16 +108,6 @@ class SiteController extends BaseController
     {
 
         $this->layout = false;
-
-    }
-
-
-    /**
-     * 测试
-     */
-    public function actionTest()
-    {
-
 
     }
 

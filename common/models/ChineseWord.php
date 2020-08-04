@@ -11,16 +11,16 @@ use yii2tech\ar\softdelete\SoftDeleteBehavior;
 
 
 /**
- * This is the model class for table "chinese_proverb".
+ * This is the model class for table "chinese_word".
  *
  * @property int $id 主键
- * @property string $riddle 面意
- * @property string|null $answer 实意
+ * @property string $word 词
+ * @property string $explain 解释
  * @property int $is_delete 删除状态 0正常 1删除
  * @property string $create_datetime 创建时间
  * @property string $update_datetime 最后更新时间
  */
-class ChineseProverb extends Base
+class ChineseWord extends Base
 {
 
 
@@ -29,7 +29,7 @@ class ChineseProverb extends Base
      */
     public static function tableName()
     {
-        return 'chinese_proverb';
+        return 'chinese_word';
     }
 
 
@@ -50,8 +50,8 @@ class ChineseProverb extends Base
     {
         return [
             'id' => '主键',
-            'riddle' => '面意',
-            'answer' => '实意',
+            'word' => '词',
+            'explain' => '解释',
             'is_delete' => '删除状态 0正常 1删除',
             'create_datetime' => '创建时间',
             'update_datetime' => '最后更新时间',
@@ -65,8 +65,8 @@ class ChineseProverb extends Base
     public function scenarios()
     {
         return [
-            'create' => ['riddle', 'answer'],
-            'update' => ['riddle', 'answer'],
+            'create' => ['word', 'explain'],
+            'update' => ['word', 'explain'],
             'recover' => [],
         ];
     }
