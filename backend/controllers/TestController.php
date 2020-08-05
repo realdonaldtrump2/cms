@@ -12,6 +12,7 @@ use common\models\ChineseCharacter;
 use common\models\ChineseAntonym;
 use common\models\ChineseSynonym;
 use common\models\ChineseNegative;
+use common\models\ChineseCharacterStroke;
 use common\models\InformationPositionCategory;
 use common\models\InformationSensitivityWord;
 use DfaFilter\SensitiveHelper;
@@ -23,6 +24,7 @@ class TestController extends BaseController
 
     public function actionIndex()
     {
+
 
     }
 
@@ -40,6 +42,19 @@ class TestController extends BaseController
 //        fclose($file);
 //        dd($array);
 
+//        foreach ($array as $single) {
+//
+//            $single2 = explode("\t", $single);
+//
+//            if ($single2[0] !== '□') {
+//                $ChineseCharacterStroke = new ChineseCharacterStroke();
+//                $ChineseCharacterStroke->scenario = 'create';
+//                $ChineseCharacterStroke->word = $single2[0];
+//                $ChineseCharacterStroke->stroke = $single2[1];
+//                $ChineseCharacterStroke->save();
+//            }
+//
+//        }
 
 //        foreach ($array as $single) {
 //            $informationSensitivityWord = new InformationSensitivityWord();
