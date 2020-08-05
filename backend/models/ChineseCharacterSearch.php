@@ -2,8 +2,11 @@
 
 namespace backend\models;
 
+
+use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use yii\data\Sort;
 use common\models\ChineseCharacter;
 
 /**
@@ -11,16 +14,18 @@ use common\models\ChineseCharacter;
  */
 class ChineseCharacterSearch extends ChineseCharacter
 {
+
+
     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['id', 'is_delete'], 'integer'],
-            [['word', 'oldword', 'strokes', 'pinyin', 'radicals', 'explain', 'more_explain', 'create_datetime', 'update_datetime'], 'safe'],
+            [['word'], 'safe'],
         ];
     }
+
 
     /**
      * {@inheritdoc}
@@ -31,6 +36,7 @@ class ChineseCharacterSearch extends ChineseCharacter
         return Model::scenarios();
     }
 
+
     /**
      * Creates data provider instance with search query applied
      *
@@ -40,38 +46,35 @@ class ChineseCharacterSearch extends ChineseCharacter
      */
     public function search($params)
     {
+
         $query = ChineseCharacter::find();
 
         // add conditions that should always apply here
-
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pageSize' => isset($params['per-page']) ? $params['per-page'] : Yii::$app->params['perPage'],
+            ],
+            'sort' => [
+                'defaultOrder' => [
+                    'id' => SORT_DESC,
+                ]
+            ],
         ]);
 
         $this->load($params);
 
         if (!$this->validate()) {
-            // uncomment the following line if you do not want to return any records when validation fails
-            // $query->where('0=1');
             return $dataProvider;
         }
 
-        // grid filtering conditions
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'is_delete' => $this->is_delete,
-            'create_datetime' => $this->create_datetime,
-            'update_datetime' => $this->update_datetime,
-        ]);
+        $query->andFilterWhere(['like', 'word', trim($this->word)]);
 
-        $query->andFilterWhere(['like', 'word', $this->word])
-            ->andFilterWhere(['like', 'oldword', $this->oldword])
-            ->andFilterWhere(['like', 'strokes', $this->strokes])
-            ->andFilterWhere(['like', 'pinyin', $this->pinyin])
-            ->andFilterWhere(['like', 'radicals', $this->radicals])
-            ->andFilterWhere(['like', 'explain', $this->explain])
-            ->andFilterWhere(['like', 'more_explain', $this->more_explain]);
+        $query->andFilterWhere(['=', 'is_delete', 0]);
 
         return $dataProvider;
+
     }
+
+
 }

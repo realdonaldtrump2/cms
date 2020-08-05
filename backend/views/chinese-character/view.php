@@ -4,42 +4,38 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\ChineseCharacter */
+/* @var $model common\models\ArticleTag */
 
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Chinese Characters', 'url' => ['index']];
+$this->title = '汉语字详情';
+$this->params['breadcrumbs'][] = ['label' => '汉语字列表', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-\yii\web\YiiAsset::register($this);
+
 ?>
-<div class="chinese-character-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+<div class="table-responsive">
 
     <?= DetailView::widget([
         'model' => $model,
+        'template' => '<tr><td width="20%" ><label>{label}</label></td><td width="80%" >{value}</td></tr>',
         'attributes' => [
-            'id',
             'word',
             'oldword',
             'strokes',
             'pinyin',
             'radicals',
-            'explain',
-            'more_explain',
-            'is_delete',
-            'create_datetime',
-            'update_datetime',
+            [
+                'attribute' => 'explain',
+                'format' => 'html',
+                'value' => function($model){
+                    return '<textarea readonly="readonly" >'.$model->explain.'</textarea>';
+                }
+            ],
+            [
+                'attribute' => 'more_explain',
+                'format' => 'html',
+                'value' => function($model){
+                    return '<textarea readonly="readonly" >'.$model->more_explain.'</textarea>';
+                }
+            ],
         ],
     ]) ?>
 

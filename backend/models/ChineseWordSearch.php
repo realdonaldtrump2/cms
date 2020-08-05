@@ -2,8 +2,11 @@
 
 namespace backend\models;
 
+
+use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use yii\data\Sort;
 use common\models\ChineseWord;
 
 /**
@@ -11,14 +14,15 @@ use common\models\ChineseWord;
  */
 class ChineseWordSearch extends ChineseWord
 {
+
+
     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['id', 'is_delete'], 'integer'],
-            [['word', 'explain', 'create_datetime', 'update_datetime'], 'safe'],
+            [['word'], 'safe'],
         ];
     }
 
@@ -40,33 +44,35 @@ class ChineseWordSearch extends ChineseWord
      */
     public function search($params)
     {
+
         $query = ChineseWord::find();
 
         // add conditions that should always apply here
-
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pageSize' => isset($params['per-page']) ? $params['per-page'] : Yii::$app->params['perPage'],
+            ],
+            'sort' => [
+                'defaultOrder' => [
+                    'id' => SORT_DESC,
+                ]
+            ],
         ]);
 
         $this->load($params);
 
         if (!$this->validate()) {
-            // uncomment the following line if you do not want to return any records when validation fails
-            // $query->where('0=1');
             return $dataProvider;
         }
 
-        // grid filtering conditions
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'is_delete' => $this->is_delete,
-            'create_datetime' => $this->create_datetime,
-            'update_datetime' => $this->update_datetime,
-        ]);
+        $query->andFilterWhere(['like', 'word', trim($this->word)]);
 
-        $query->andFilterWhere(['like', 'word', $this->word])
-            ->andFilterWhere(['like', 'explain', $this->explain]);
+        $query->andFilterWhere(['=', 'is_delete', 0]);
 
         return $dataProvider;
+
     }
+
+
 }

@@ -30,20 +30,20 @@ class TestController extends BaseController
         }
         fclose($file);
 
-        foreach ($array as $single) {
-            $single = explode("\t", $single);
-            $chineseNegative = new ChineseNegative();
-            $chineseNegative->scenario = 'create';
-            $chineseNegative->word = $single[0];
-            $chineseNegative->save();
-        }
-
 //        foreach ($array as $single) {
-//            $chineseSynonymModel = new ChineseSynonym();
-//            $chineseSynonymModel->scenario = 'create';
-//            $chineseSynonymModel->container = explode(' ', $single);
-//            $chineseSynonymModel->save();
+//            $single = explode("\t", $single);
+//            $chineseNegative = new ChineseNegative();
+//            $chineseNegative->scenario = 'create';
+//            $chineseNegative->word = $single[0];
+//            $chineseNegative->save();
 //        }
+
+        foreach ($array as $single) {
+            $chineseSynonymModel = new ChineseSynonym();
+            $chineseSynonymModel->scenario = 'create';
+            $chineseSynonymModel->keyword_container = ['keyword' => explode(' ', $single)];
+            $chineseSynonymModel->save();
+        }
 
 //        $json = file_get_contents('http://backend.cms.com/json/word.json');
 //        $array = json_decode($json, true);

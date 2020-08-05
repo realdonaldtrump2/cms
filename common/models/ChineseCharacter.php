@@ -13,7 +13,7 @@ use yii2tech\ar\softdelete\SoftDeleteBehavior;
 /**
  * This is the model class for table "chinese_character".
  *
- * @property int $id 主键
+ * @property int $id 编号
  * @property string $word 字
  * @property string $oldword 繁体
  * @property string $strokes strokes
@@ -54,7 +54,7 @@ class ChineseCharacter extends Base
     public function attributeLabels()
     {
         return [
-            'id' => '主键',
+            'id' => '编号',
             'word' => '字',
             'oldword' => '繁体',
             'strokes' => 'strokes',

@@ -3,31 +3,54 @@
 namespace backend\controllers;
 
 use Yii;
+use yii\web\NotFoundHttpException;
+use yii\web\UnauthorizedHttpException;
 use common\models\ChineseWord;
 use backend\models\ChineseWordSearch;
-use yii\web\Controller;
-use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
+
 
 /**
  * ChineseWordController implements the CRUD actions for ChineseWord model.
  */
-class ChineseWordController extends Controller
+class ChineseWordController extends BaseController
 {
+
+
+
     /**
      * {@inheritdoc}
      */
     public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
+        $behaviors = parent::behaviors();
+        return $behaviors;
     }
+
+
+    /**
+     * @param \yii\base\Action $action
+     * @return bool
+     * @throws UnauthorizedHttpException
+     */
+    public function beforeAction($action)
+    {
+
+        if (!parent::beforeAction($action)) {
+            return false;
+        }
+
+        $module = Yii::$app->controller->module->id;
+        $controller = Yii::$app->controller->id;
+        $action = Yii::$app->controller->action->id;
+
+        if (Yii::$app->user->can($module . '/' . $controller . '/' . $action) && Yii::$app->user->identity->checkIsAdmin()) {
+            return true;
+        }
+
+        throw new UnauthorizedHttpException('没有操作权限');
+
+    }
+
 
     /**
      * Lists all ChineseWord models.
@@ -44,6 +67,7 @@ class ChineseWordController extends Controller
         ]);
     }
 
+
     /**
      * Displays a single ChineseWord model.
      * @param integer $id
@@ -56,6 +80,7 @@ class ChineseWordController extends Controller
             'model' => $this->findModel($id),
         ]);
     }
+
 
     /**
      * Creates a new ChineseWord model.
@@ -74,6 +99,7 @@ class ChineseWordController extends Controller
             'model' => $model,
         ]);
     }
+
 
     /**
      * Updates an existing ChineseWord model.
@@ -95,6 +121,7 @@ class ChineseWordController extends Controller
         ]);
     }
 
+
     /**
      * Deletes an existing ChineseWord model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -104,10 +131,11 @@ class ChineseWordController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
+        $model = $this->findModel($id);
+        $model->softDelete();
         return $this->redirect(['index']);
     }
+
 
     /**
      * Finds the ChineseWord model based on its primary key value.
@@ -118,10 +146,12 @@ class ChineseWordController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = ChineseWord::findOne($id)) !== null) {
+        if (($model = ChineseWord::findOneUnDelete($id)) !== null) {
             return $model;
         }
 
-        throw new NotFoundHttpException('The requested page does not exist.');
+        throw new NotFoundHttpException('页面不存在');
     }
+
+
 }
