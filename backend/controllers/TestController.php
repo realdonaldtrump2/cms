@@ -12,6 +12,9 @@ use common\models\ChineseCharacter;
 use common\models\ChineseAntonym;
 use common\models\ChineseSynonym;
 use common\models\ChineseNegative;
+use common\models\InformationPositionCategory;
+use common\models\InformationSensitivityWord;
+use DfaFilter\SensitiveHelper;
 
 
 class TestController extends BaseController
@@ -21,14 +24,37 @@ class TestController extends BaseController
     public function actionIndex()
     {
 
-        $file = fopen("http://backend.cms.com/json/dict_synonym.txt", "r");
-        $array = [];
-        $i = 0;
-        while (!feof($file)) {
-            $array[$i] = str_replace(["\r\n", "\r", "\n"], '', trim(fgets($file), ' '));
-            $i++;
-        }
-        fclose($file);
+    }
+
+
+    public function actionHistory()
+    {
+
+//        $file = fopen("http://backend.cms.com/json/dict_synonym.txt", "r");
+//        $array = [];
+//        $i = 0;
+//        while (!feof($file)) {
+//            $array[$i] = str_replace(["\r\n", "\r", "\n"], '', trim(fgets($file), ' '));
+//            $i++;
+//        }
+//        fclose($file);
+//        dd($array);
+
+
+//        foreach ($array as $single) {
+//            $informationSensitivityWord = new InformationSensitivityWord();
+//            $informationSensitivityWord->scenario = 'create';
+//            $informationSensitivityWord->category = 'website';
+//            $informationSensitivityWord->word = $single;
+//            $informationSensitivityWord->save();
+//        }
+
+//        foreach ($array as $single) {
+//            $informationPositionCategory = new InformationPositionCategory();
+//            $informationPositionCategory->scenario = 'create';
+//            $informationPositionCategory->title = $single;
+//            $informationPositionCategory->save();
+//        }
 
 //        foreach ($array as $single) {
 //            $single = explode("\t", $single);
@@ -38,12 +64,12 @@ class TestController extends BaseController
 //            $chineseNegative->save();
 //        }
 
-        foreach ($array as $single) {
-            $chineseSynonymModel = new ChineseSynonym();
-            $chineseSynonymModel->scenario = 'create';
-            $chineseSynonymModel->keyword_container = ['keyword' => explode(' ', $single)];
-            $chineseSynonymModel->save();
-        }
+//        foreach ($array as $single) {
+//            $chineseSynonymModel = new ChineseSynonym();
+//            $chineseSynonymModel->scenario = 'create';
+//            $chineseSynonymModel->keyword_container = ['keyword' => explode(' ', $single)];
+//            $chineseSynonymModel->save();
+//        }
 
 //        $json = file_get_contents('http://backend.cms.com/json/word.json');
 //        $array = json_decode($json, true);
