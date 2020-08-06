@@ -66,7 +66,7 @@ class ChineseAntonym extends Base
     {
         return [
             'create' => ['front_word', 'back_word'],
-            'update' => [],
+            'update' => ['front_word', 'back_word'],
             'recover' => [],
         ];
     }

@@ -6,35 +6,19 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\ChineseAntonym */
 
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Chinese Antonyms', 'url' => ['index']];
+$this->title = '汉语反义词详情';
+$this->params['breadcrumbs'][] = ['label' => '汉语反义词列表', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-\yii\web\YiiAsset::register($this);
+
 ?>
-<div class="chinese-antonym-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+<div class="table-responsive">
 
     <?= DetailView::widget([
         'model' => $model,
+        'template' => '<tr><td width="20%" ><label>{label}</label></td><td width="80%" >{value}</td></tr>',
         'attributes' => [
-            'id',
-            'front',
-            'back',
-            'is_delete',
-            'create_datetime',
-            'update_datetime',
+            'front_word',
+            'back_word',
         ],
     ]) ?>
 
