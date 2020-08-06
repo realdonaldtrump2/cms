@@ -13,7 +13,7 @@ use yii2tech\ar\softdelete\SoftDeleteBehavior;
 /**
  * This is the model class for table "software".
  *
- * @property int $id 主键
+ * @property int $id 编号
  * @property int $category_id 分类id
  * @property string $title 名称
  * @property string $detail 详情
@@ -53,7 +53,7 @@ class Software extends Base
     public function attributeLabels()
     {
         return [
-            'id' => '主键',
+            'id' => '编号',
             'category_id' => '分类id',
             'title' => '名称',
             'detail' => '详情',

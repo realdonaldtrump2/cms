@@ -13,7 +13,7 @@ use yii2tech\ar\softdelete\SoftDeleteBehavior;
 /**
  * This is the model class for table "adult_video_actress".
  *
- * @property int $id 主键
+ * @property int $id 编号
  * @property string $name 名称
  * @property string $raw_name 原名称
  * @property string $avatar 头像
@@ -55,7 +55,7 @@ class AdultVideoActress extends Base
     public function attributeLabels()
     {
         return [
-            'id' => '主键',
+            'id' => '编号',
             'name' => '名称',
             'raw_name' => '原名称',
             'avatar' => '头像',

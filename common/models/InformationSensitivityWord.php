@@ -13,7 +13,7 @@ use yii2tech\ar\softdelete\SoftDeleteBehavior;
 /**
  * This is the model class for table "information_sensitivity_word".
  *
- * @property int $id 主键
+ * @property int $id 编号
  * @property string $category 分类
  * @property string $word 词
  * @property int $is_delete 删除状态 0正常 1删除
@@ -49,7 +49,7 @@ class InformationSensitivityWord extends Base
     public function attributeLabels()
     {
         return [
-            'id' => '主键',
+            'id' => '编号',
             'category' => '分类',
             'word' => '词',
             'is_delete' => '删除状态 0正常 1删除',

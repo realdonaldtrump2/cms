@@ -3,31 +3,53 @@
 namespace backend\controllers;
 
 use Yii;
+use yii\web\NotFoundHttpException;
+use yii\web\UnauthorizedHttpException;
 use common\models\ChineseSynonym;
 use backend\models\ChineseSynonymSearch;
-use yii\web\Controller;
-use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
+
 
 /**
  * ChineseSynonymController implements the CRUD actions for ChineseSynonym model.
  */
-class ChineseSynonymController extends Controller
+class ChineseSynonymController extends BaseController
 {
+
+
     /**
      * {@inheritdoc}
      */
     public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
+        $behaviors = parent::behaviors();
+        return $behaviors;
     }
+
+
+    /**
+     * @param \yii\base\Action $action
+     * @return bool
+     * @throws UnauthorizedHttpException
+     */
+    public function beforeAction($action)
+    {
+
+        if (!parent::beforeAction($action)) {
+            return false;
+        }
+
+        $module = Yii::$app->controller->module->id;
+        $controller = Yii::$app->controller->id;
+        $action = Yii::$app->controller->action->id;
+
+        if (Yii::$app->user->can($module . '/' . $controller . '/' . $action) && Yii::$app->user->identity->checkIsAdmin()) {
+            return true;
+        }
+
+        throw new UnauthorizedHttpException('没有操作权限');
+
+    }
+
 
     /**
      * Lists all ChineseSynonym models.
@@ -44,6 +66,7 @@ class ChineseSynonymController extends Controller
         ]);
     }
 
+
     /**
      * Displays a single ChineseSynonym model.
      * @param integer $id
@@ -56,6 +79,7 @@ class ChineseSynonymController extends Controller
             'model' => $this->findModel($id),
         ]);
     }
+
 
     /**
      * Creates a new ChineseSynonym model.
@@ -74,6 +98,7 @@ class ChineseSynonymController extends Controller
             'model' => $model,
         ]);
     }
+
 
     /**
      * Updates an existing ChineseSynonym model.
@@ -95,6 +120,7 @@ class ChineseSynonymController extends Controller
         ]);
     }
 
+
     /**
      * Deletes an existing ChineseSynonym model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -104,10 +130,11 @@ class ChineseSynonymController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
+        $model = $this->findModel($id);
+        $model->softDelete();
         return $this->redirect(['index']);
     }
+
 
     /**
      * Finds the ChineseSynonym model based on its primary key value.
@@ -118,10 +145,12 @@ class ChineseSynonymController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = ChineseSynonym::findOne($id)) !== null) {
+        if (($model = ChineseSynonym::findOneUnDelete($id)) !== null) {
             return $model;
         }
 
-        throw new NotFoundHttpException('The requested page does not exist.');
+        throw new NotFoundHttpException('页面不存在');
     }
+
+
 }

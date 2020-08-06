@@ -13,7 +13,7 @@ use yii2tech\ar\softdelete\SoftDeleteBehavior;
 /**
  * This is the model class for table "chinese_antonym".
  *
- * @property int $id 主键
+ * @property int $id 编号
  * @property string $front_word 正面
  * @property string $back_word 反面
  * @property int $is_delete 删除状态 0正常 1删除
@@ -49,7 +49,7 @@ class ChineseAntonym extends Base
     public function attributeLabels()
     {
         return [
-            'id' => '主键',
+            'id' => '编号',
             'front_word' => '正面',
             'back_word' => '反面',
             'is_delete' => '删除状态 0正常 1删除',

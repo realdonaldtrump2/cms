@@ -13,7 +13,7 @@ use yii2tech\ar\softdelete\SoftDeleteBehavior;
 /**
  * This is the model class for table "chinese_idiom".
  *
- * @property int $id 主键
+ * @property int $id 编号
  * @property string $word 词
  * @property string $pinyin 拼音
  * @property string $abbreviation 拼音缩写
@@ -53,7 +53,7 @@ class ChineseIdiom extends Base
     public function attributeLabels()
     {
         return [
-            'id' => '主键',
+            'id' => '编号',
             'word' => '词',
             'pinyin' => '拼音',
             'abbreviation' => '拼音缩写',

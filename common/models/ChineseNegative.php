@@ -13,7 +13,7 @@ use yii2tech\ar\softdelete\SoftDeleteBehavior;
 /**
  * This is the model class for table "chinese_negative".
  *
- * @property int $id 主键
+ * @property int $id 编号
  * @property string $word 词
  * @property int $is_delete 删除状态 0正常 1删除
  * @property string $create_datetime 创建时间
@@ -48,7 +48,7 @@ class ChineseNegative extends Base
     public function attributeLabels()
     {
         return [
-            'id' => '主键',
+            'id' => '编号',
             'word' => '词',
             'is_delete' => '删除状态 0正常 1删除',
             'create_datetime' => '创建时间',

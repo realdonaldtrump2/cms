@@ -13,7 +13,7 @@ use yii2tech\ar\softdelete\SoftDeleteBehavior;
 /**
  * This is the model class for table "chinese_proverb".
  *
- * @property int $id 主键
+ * @property int $id 编号
  * @property string $riddle 面意
  * @property string|null $answer 实意
  * @property int $is_delete 删除状态 0正常 1删除
@@ -49,8 +49,8 @@ class ChineseProverb extends Base
     public function attributeLabels()
     {
         return [
-            'id' => '主键',
-            'riddle' => '面意',
+            'id' => '编号',
+            'word' => '面意',
             'answer' => '实意',
             'is_delete' => '删除状态 0正常 1删除',
             'create_datetime' => '创建时间',
@@ -65,8 +65,8 @@ class ChineseProverb extends Base
     public function scenarios()
     {
         return [
-            'create' => ['riddle', 'answer'],
-            'update' => ['riddle', 'answer'],
+            'create' => ['word', 'answer'],
+            'update' => ['word', 'answer'],
             'recover' => [],
         ];
     }
