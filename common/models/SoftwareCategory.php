@@ -38,9 +38,6 @@ class SoftwareCategory extends Base
     public function rules()
     {
         return [
-            [['is_delete'], 'integer'],
-            [['create_datetime', 'update_datetime'], 'safe'],
-            [['title'], 'string', 'max' => 255],
         ];
     }
 

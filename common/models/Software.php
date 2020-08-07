@@ -40,12 +40,9 @@ class Software extends Base
     public function rules()
     {
         return [
-            [['category_id', 'is_delete'], 'integer'],
-            [['detail'], 'required'],
-            [['detail', 'create_datetime', 'update_datetime'], 'safe'],
-            [['title'], 'string', 'max' => 255],
         ];
     }
+
 
     /**
      * {@inheritdoc}

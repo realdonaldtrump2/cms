@@ -8,6 +8,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Promise;
 use QL\QueryList;
 use common\models\SoftwareCategory;
+use common\models\Software;
 
 
 class WwwZhanshaoyiComController extends BaseController
@@ -68,7 +69,31 @@ class WwwZhanshaoyiComController extends BaseController
 
         $rawDataList = $queryList->all();
 
-        dd($rawDataList);
+        $finalDataList = [];
+        foreach ($rawDataList as $key => $single) {
+            if ($key >= 2 && $key <= 418) {
+                if ($single['software'] !== '持续更新中……') {
+                    $finalDataList[] = $single;
+                }
+            }
+        }
+
+        $newSingle = [];
+        foreach ($finalDataList as $key => $single) {
+            if ($single['title'] !== '') {
+                $newSingle[] = ['title' => $single['title'], 'detail' => []];
+            } else {
+                $count = count($newSingle);
+                $newSingle[$count - 1]['detail'][] = $single['software'];
+            }
+        }
+
+//        foreach ($newSingle as $single) {
+//            $software = new Software();
+//            $software->title = $single['title'];
+//            $software->detail = $single['detail'];
+//            $software->save(false);
+//        }
 
     }
 
