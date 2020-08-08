@@ -2,7 +2,6 @@
 
 namespace spider\controllers;
 
-
 use Yii;
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise;
@@ -11,7 +10,7 @@ use common\models\SoftwareCategory;
 use common\models\Software;
 
 
-class WwwZhanshaoyiComController extends BaseController
+class WwwzhanshaoyicomController extends BaseController
 {
 
 

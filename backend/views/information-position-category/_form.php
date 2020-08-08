@@ -4,19 +4,17 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\ChineseProverb */
+/* @var $model common\models\InformationPositionCategory */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="chinese-proverb-form">
+<div class="information-position-category-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'id')->textInput() ?>
 
-    <?= $form->field($model, 'word')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'answer')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'is_delete')->textInput() ?>
 

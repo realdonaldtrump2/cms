@@ -3,14 +3,14 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\ChineseProverb */
+/* @var $model common\models\InformationPositionCategory */
 
-$this->title = 'Update Chinese Proverb: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Chinese Proverbs', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
+$this->title = 'Update Information Position Category: ' . $model->title;
+$this->params['breadcrumbs'][] = ['label' => 'Information Position Categories', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="chinese-proverb-update">
+<div class="information-position-category-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
