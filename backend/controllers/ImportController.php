@@ -2,9 +2,9 @@
 
 namespace backend\controllers;
 
-
 use Yii;
 use yii\filters\AccessControl;
+use common\models\ChineseSong;
 use common\models\ChineseProverb;
 use common\models\ChineseWord;
 use common\models\ChineseIdiom;
@@ -24,15 +24,29 @@ class ImportController extends BaseController
     public function actionIndex()
     {
 
-//        $file = fopen("http://backend.cms.com/json/dict_synonym.txt", "r");
-//        $array = [];
-//        $i = 0;
-//        while (!feof($file)) {
-//            $array[$i] = str_replace(["\r\n", "\r", "\n"], '', trim(fgets($file), ' '));
-//            $i++;
+        ini_set('max_execution_time', 0);
+
+        $file = fopen("http://backend.cms.com/json/json.json", "r");
+        $array = [];
+        $i = 0;
+        while (!feof($file)) {
+            $array[$i] = str_replace(["\r\n", "\r", "\n"], '', trim(fgets($file), ' '));
+            $i++;
+        }
+        fclose($file);
+//        dd(json_decode($array[0], true));
+
+
+//        foreach ($array as $single) {
+//            $single = json_decode($single, true);
+//            $chineseSong = new ChineseSong();
+//            $chineseSong->scenario = 'create';
+//            $chineseSong->singer = $single['singer'];
+//            $chineseSong->title = $single['song'];
+//            $chineseSong->album = $single['album'];
+//            $chineseSong->detail = implode(",", $single['geci']);
+//            $chineseSong->save(false);
 //        }
-//        fclose($file);
-//        dd($array);
 
 //        foreach ($array as $single) {
 //
