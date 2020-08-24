@@ -151,5 +151,8 @@ return [
         'verifyField' => [
             'class' => 'common\components\VerifyField',
         ],
+        'pdf' => [
+            'class' => 'common\components\Pdf',
+        ],
     ],
 ];

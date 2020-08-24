@@ -14,6 +14,7 @@ class TestController extends BaseController
     public function actionIndex()
     {
 
+        Yii::$app->pdf->resumeGenerate();
 
     }
 
