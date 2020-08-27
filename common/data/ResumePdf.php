@@ -12,6 +12,16 @@ class ResumePdf extends TCPDF
     public function Header()
     {
 
+//        $this->SetFont('Gotham Medium', 'C', 50);
+//        $this->SetTextColor(209,183,49);
+
+//        $this->Ln(5);
+//        $this->Cell(278, 15, 'custom header', 0, false, 'C', 0, '', 0, false, 'M', 'M');
+//
+//        $headerData = $this->getHeaderData();
+//        $this->SetFont('helvetica', 'B', 10);
+//        $this->writeHTML($headerData['string']);
+
         // get the current page break margin
         $bMargin = $this->getBreakMargin();
         // get current auto-page-break mode
@@ -26,7 +36,23 @@ class ResumePdf extends TCPDF
         // set the starting point for the page content
         $this->setPageMark();
 
+        $this->SetTopMargin(15);
+        $this->SetFooterMargin(0);
+
     }
+
+
+//    public function Footer()
+//    {
+//
+//        // Position at 15 mm from bottom
+//        $this->SetY(-15);
+//        // Set font
+//        $this->SetFont('stsongstdlight', 'B', 16);
+//        // Page number
+//        $this->Cell(0, 10, '' . $this->getAliasNumPage() . '/' . $this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
+//
+//    }
 
 
 }

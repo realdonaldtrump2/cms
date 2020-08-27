@@ -53,6 +53,12 @@ $this->context->layout = 'function';
 
             <?php ActiveForm::end(); ?>
 
+            <center>
+                <a href="https://github.com/login/oauth/authorize?client_id=2498a0e9c56f9df53a20&scope=user,public_repo" title="github授权登录" >
+                    <i class="fa fa-github" style="font-size: 50px;" ></i>
+                </a>
+            </center>
+
         </section>
     </div>
 </div>

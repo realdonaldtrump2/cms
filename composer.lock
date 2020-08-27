@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3ace4c1c5080e3ef97719238f31456f8",
+    "content-hash": "d3b092ef9839ee7ac42c9cff16a6ed74",
     "packages": [
         {
             "name": "2amigos/qrcode-library",
@@ -1092,16 +1092,16 @@
         },
         {
             "name": "alibabacloud/sdk",
-            "version": "1.8.447",
+            "version": "1.8.453",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aliyun/openapi-sdk-php.git",
-                "reference": "56cb409574730f109c6505814970fdb4c2e200a2"
+                "reference": "b34c216d7818b068ba17ae25c17cd056b65624bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aliyun/openapi-sdk-php/zipball/56cb409574730f109c6505814970fdb4c2e200a2",
-                "reference": "56cb409574730f109c6505814970fdb4c2e200a2",
+                "url": "https://api.github.com/repos/aliyun/openapi-sdk-php/zipball/b34c216d7818b068ba17ae25c17cd056b65624bc",
+                "reference": "b34c216d7818b068ba17ae25c17cd056b65624bc",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -1328,7 +1328,7 @@
                 "library",
                 "sdk"
             ],
-            "time": "2020-08-19T09:56:28+00:00"
+            "time": "2020-08-25T07:20:23+00:00"
         },
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -1806,7 +1806,7 @@
             "version": "v3.4.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/twbs/bootstrap.git",
+                "url": "git@github.com:twbs/bootstrap.git",
                 "reference": "68b0d231a13201eb14acd3dc84e51543d16e5f7e"
             },
             "dist": {
@@ -1907,7 +1907,7 @@
             "version": "1.10.21",
             "source": {
                 "type": "git",
-                "url": "git@github.com:DataTables/DataTables.git",
+                "url": "https://github.com/DataTables/DataTables.git",
                 "reference": "83e59694a105225ff889ddfa0d723a3ab24fda78"
             },
             "dist": {
@@ -2240,7 +2240,7 @@
             "version": "v2.1.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:metafizzy/outlayer.git",
+                "url": "https://github.com/metafizzy/outlayer.git",
                 "reference": "bf31c5748bf84fcc2c553d1199a6ecaf0ebd9878"
             },
             "dist": {
@@ -2263,7 +2263,7 @@
             "version": "v2.1.8",
             "source": {
                 "type": "git",
-                "url": "git@github.com:patternfly/patternfly-bootstrap-treeview.git",
+                "url": "https://github.com/patternfly/patternfly-bootstrap-treeview.git",
                 "reference": "3a85d1477d7058cf55b242bae097c61fec951860"
             },
             "dist": {
@@ -2371,12 +2371,12 @@
             "version": "v2.2.10",
             "source": {
                 "type": "git",
-                "url": "git@github.com:wordnik/swagger-ui.git",
+                "url": "https://github.com/swagger-api/swagger-ui.git",
                 "reference": "64dc3060b3700b12e466f8d67b7d7ec3574b015f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wordnik/swagger-ui/zipball/64dc3060b3700b12e466f8d67b7d7ec3574b015f",
+                "url": "https://api.github.com/repos/swagger-api/swagger-ui/zipball/64dc3060b3700b12e466f8d67b7d7ec3574b015f",
                 "reference": "64dc3060b3700b12e466f8d67b7d7ec3574b015f"
             },
             "type": "bower-asset",
@@ -9963,16 +9963,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.1.2",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "63cd8c14708b9544d3f61d3c15b747fda1c95c6e"
+                "reference": "9be3b16c877d477357c015cec057548cf9b2a14a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/63cd8c14708b9544d3f61d3c15b747fda1c95c6e",
-                "reference": "63cd8c14708b9544d3f61d3c15b747fda1c95c6e",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/9be3b16c877d477357c015cec057548cf9b2a14a",
+                "reference": "9be3b16c877d477357c015cec057548cf9b2a14a",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -10056,7 +10056,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2020-08-18T10:57:55+00:00"
+            "time": "2020-08-23T07:39:11+00:00"
         },
         {
             "name": "league/flysystem-sftp",
@@ -11969,16 +11969,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.38.0",
+            "version": "2.39.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "d8f6a6a91d1eb9304527b040500f61923e97674b"
+                "reference": "0a41ea7f7fedacf307b7a339800e10356a042918"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/d8f6a6a91d1eb9304527b040500f61923e97674b",
-                "reference": "d8f6a6a91d1eb9304527b040500f61923e97674b",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/0a41ea7f7fedacf307b7a339800e10356a042918",
+                "reference": "0a41ea7f7fedacf307b7a339800e10356a042918",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -12060,7 +12060,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-08-04T19:12:46+00:00"
+            "time": "2020-08-24T12:35:58+00:00"
         },
         {
             "name": "nick-denry/yii2-round-switch-column",
@@ -12834,6 +12834,112 @@
                 "zip"
             ],
             "time": "2014-06-05T11:42:24+00:00"
+        },
+        {
+            "name": "pcrov/jsonreader",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pcrov/JsonReader.git",
+                "reference": "83ff905fbea18c74bd438c6aa85cb3500763bfdb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pcrov/JsonReader/zipball/83ff905fbea18c74bd438c6aa85cb3500763bfdb",
+                "reference": "83ff905fbea18c74bd438c6aa85cb3500763bfdb",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "ext-ctype": "*",
+                "ext-intl": "*",
+                "pcrov/unicode": "^0.1",
+                "php": "^7.0",
+                "psr/http-message": "^1"
+            },
+            "require-dev": {
+                "nst/jsontestsuite": "^1",
+                "phpunit/phpunit": "^6.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "pcrov\\JsonReader\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Crovella",
+                    "role": "developer"
+                }
+            ],
+            "description": "JSON Pull Parser",
+            "homepage": "https://github.com/pcrov/jsonreader",
+            "keywords": [
+                "json",
+                "parser",
+                "pull",
+                "streaming"
+            ],
+            "time": "2019-01-13T22:25:20+00:00"
+        },
+        {
+            "name": "pcrov/unicode",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pcrov/Unicode.git",
+                "reference": "d2d9d433294ea3b41fd17ff29b4b47fe6f71d83e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pcrov/Unicode/zipball/d2d9d433294ea3b41fd17ff29b4b47fe6f71d83e",
+                "reference": "d2d9d433294ea3b41fd17ff29b4b47fe6f71d83e",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.0.8"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Crovella"
+                }
+            ],
+            "description": "Miscellaneous Unicode utility functions",
+            "homepage": "https://github.com/pcrov/unicode",
+            "keywords": [
+                "unicode",
+                "utf-8"
+            ],
+            "time": "2018-03-01T09:26:35+00:00"
         },
         {
             "name": "pheme/yii2-settings",
