@@ -154,5 +154,8 @@ return [
         'pdf' => [
             'class' => 'common\components\Pdf',
         ],
+        'excel' => [
+            'class' => 'common\components\Excel',
+        ],
     ],
 ];
