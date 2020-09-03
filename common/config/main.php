@@ -38,6 +38,16 @@ return [
             'schemaCacheDuration' => 3600,
             'schemaCache' => 'cache',
         ],
+        'db2' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'mysql:host=39.98.131.34;dbname=project_test',
+            'username' => 'project_test',
+            'password' => 'dpxcEdh5ydXZnfHk',
+            'charset' => 'utf8mb4',
+            'emulatePrepare' => true,
+            'schemaCacheDuration' => 3600,
+            'schemaCache' => 'cache',
+        ],
         'assetManager' => [
             'bundles' => [
             ],

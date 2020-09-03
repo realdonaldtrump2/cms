@@ -50,7 +50,6 @@ class Oauth2Controller extends BaseController
 
         }
 
-
     }
 
 

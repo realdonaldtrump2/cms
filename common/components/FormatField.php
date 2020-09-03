@@ -21,9 +21,11 @@ class FormatField extends Component
      */
     public function invisible($string, $num, $numb)
     {
+
         $length = mb_strlen($string, 'utf8') - $num - $numb;
         $str = str_repeat("*", $length);//替换字符数量
         return substr_replace($string, $str, $num, $length);
+
     }
 
 
@@ -35,7 +37,9 @@ class FormatField extends Component
      */
     public function money($value)
     {
+
         return number_format($value / 100.00, 2, '.', '');
+
     }
 
 
@@ -47,7 +51,9 @@ class FormatField extends Component
      */
     public function strToUpper($str)
     {
+
         return strtoupper($str);
+
     }
 
 
@@ -59,7 +65,9 @@ class FormatField extends Component
      */
     public function strToLower($str)
     {
+
         return strtolower($str);
+
     }
 
 
@@ -141,10 +149,12 @@ class FormatField extends Component
      */
     public function underLineToSmallUpper($str)
     {
+
         $str = preg_replace_callback('/([-_]+([a-z]))/i', function ($matches) {
             return strtoupper($matches[2]);
         }, $str);
         return $str;
+
     }
 
 
