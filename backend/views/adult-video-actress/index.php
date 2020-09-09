@@ -39,14 +39,27 @@ $this->params['breadcrumbs'][] = $this->title;
         [
             'class' => \yii\grid\CheckboxColumn::className(),
         ],
+        'id',
         [
             'attribute' => 'avatar',
-            'format' => 'html',
+            'format' => 'raw',
             'value' => function ($model) {
                 return '<img class="avatar-image" src="data:image/png;base64,' . $model->avatar . '" >';
             }
         ],
         'name',
         'raw_name',
+        [
+            'class' => 'yii\grid\ActionColumn',
+            'header' => '操作',
+            'template' => '{view}',
+            'buttons' => [
+                'view' => function ($url, $model, $key) {
+                    if (Yii::$app->user->can('backend/adult-video-actress/view')) {
+                        return Html::a('查看', ['view', 'id' => $model->id], ['class' => 'btn btn-outline btn-xs btn-primary']);
+                    }
+                },
+            ]
+        ],
     ],
 ]); ?>

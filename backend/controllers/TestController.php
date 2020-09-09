@@ -22,11 +22,10 @@ class TestController extends BaseController
             $array = json_decode(fgets($file), true);
             $informationQuestionAndAnswerModel = new InformationQuestionAndAnswer();
             $informationQuestionAndAnswerModel->scenario = 'create';
-            $informationQuestionAndAnswerModel->old_id = $array['_id']['$oid'];
-            $informationQuestionAndAnswerModel->url = $array['url'];
-            $informationQuestionAndAnswerModel->answer = $array['answers'];
-            $informationQuestionAndAnswerModel->question = $array['question'];
-            $informationQuestionAndAnswerModel->tag = $array['tags'];
+            $informationQuestionAndAnswerModel->url = $array['url'] ? $array['url'] : '';
+            $informationQuestionAndAnswerModel->answer = $array['answers'] ? $array['answers'] : [];
+            $informationQuestionAndAnswerModel->question = $array['question'] ? $array['question'] : '';
+            $informationQuestionAndAnswerModel->tag = $array['tags'] ? $array['tags'] : [];
             $informationQuestionAndAnswerModel->save(false);
         }
         fclose($file);

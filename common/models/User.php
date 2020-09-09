@@ -15,7 +15,7 @@ use yii\filters\RateLimitInterface;
 
 
 /**
- * This is the model class for table 'article'.
+ * This is the model class for table 'user'.
  *
  * @property int $id 编号
  * @property string $phone 手机号

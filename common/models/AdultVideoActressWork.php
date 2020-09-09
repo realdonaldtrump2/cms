@@ -59,6 +59,7 @@ class AdultVideoActressWork extends Base
         return [
             'id' => '编号',
             'adult_video_actress_id' => 'adult_video_actress表id',
+            'title' => '标题',
             'cover' => '封面',
             'designation' => '番号',
             'publish_datetime' => '发布时间',

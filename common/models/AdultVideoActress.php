@@ -58,6 +58,7 @@ class AdultVideoActress extends Base
             'id' => '编号',
             'name' => '名称',
             'raw_name' => '原名称',
+            'pinyin' => '拼音',
             'avatar' => '头像',
             'is_delete' => '删除状态 0正常 1删除',
             'create_datetime' => '创建时间',
@@ -110,6 +111,12 @@ class AdultVideoActress extends Base
                 ],
             ]
         ];
+    }
+
+
+    public function getAdultVideoActressDetail()
+    {
+        return $this->hasOne(AdultVideoActressDetail::className(), ['adult_video_actress_id' => 'id']);
     }
 
 

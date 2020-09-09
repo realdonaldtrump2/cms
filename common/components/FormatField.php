@@ -28,7 +28,6 @@ class FormatField extends Component
 
     }
 
-
     /**
      * 金额分转换为字符串元
      *

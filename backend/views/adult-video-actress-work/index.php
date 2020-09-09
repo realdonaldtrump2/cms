@@ -7,41 +7,75 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\AdultVideoActressWorkSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Adult Video Actress Works';
+$this->title = '女演员作品列表';
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
-<div class="adult-video-actress-work-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="function-button-container">
 
-    <p>
-        <?= Html::a('Create Adult Video Actress Work', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <a class="btn btn-primary searchFormSwitch"><i class="fa fa-search"></i> 筛选</a>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'adult_video_actress_id',
-            'title',
-            'cover:ntext',
-            'cover_url:url',
-            //'designation',
-            //'information',
-            //'publish_datetime',
-            //'duration',
-            //'is_delete',
-            //'create_datetime',
-            //'update_datetime',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-
+    <div class="pull-right">
+        <?= Html::dropDownList(
+            'per-page',
+            isset(Yii::$app->request->get()['per-page']) ? Yii::$app->request->get('per-page') : $dataProvider->getPagination()->pageSize,
+            [20 => '20条/页', 50 => '50条/页', 100 => '100条/页', 1000 => '1000条/页'],
+            ['class' => 'form-control', 'style' => 'width: 120px;']
+        ); ?>
+    </div>
 
 </div>
+
+<?php echo $this->render('_search', ['model' => $searchModel]); ?>
+
+<?= GridView::widget([
+    'dataProvider' => $dataProvider,
+    'filterSelector' => 'select[name="per-page"]',
+    'emptyText' => '<span>当前没有内容</span>',
+    'layout' => '<div class="table-responsive">{items}</div><div class="row" ><div class="col-xs-12 col-sm-12 col-md-8" >{pager}</div> <div class="col-xs-12 col-sm-12 col-md-4" ><div class="pull-right" ><ul class="pagination" >{summary}</ul></div></div></div>',
+    'tableOptions' => ['class' => 'table table-striped table-bordered table-hover table-responsive'],
+    'columns' => [
+        [
+            'class' => \yii\grid\CheckboxColumn::className(),
+        ],
+        'id',
+        [
+            'attribute' => 'title',
+            'value' => function ($model) {
+                if (mb_strlen($model->title) > 20) {
+                    return mb_substr($model->title, 0, 20) . '...';
+                }
+
+                return $model->title;
+            }
+        ],
+        [
+            'attribute' => 'cover',
+            'format' => 'raw',
+            'value' => function ($model) {
+                return '<img class="avatar-image" src="data:image/png;base64,' . $model->cover . '" >';
+            }
+        ],
+        'designation',
+        'publish_datetime',
+        [
+            'attribute' => 'duration',
+            'value' => function ($model) {
+                return gmdate('H:i:s', $model->duration);
+            }
+        ],
+        [
+            'class' => 'yii\grid\ActionColumn',
+            'header' => '操作',
+            'template' => '{view}',
+            'buttons' => [
+                'view' => function ($url, $model, $key) {
+                    if (Yii::$app->user->can('backend/adult-video-actress-work/view')) {
+                        return Html::a('查看', ['view', 'id' => $model->id], ['class' => 'btn btn-outline btn-xs btn-primary']);
+                    }
+                },
+            ]
+        ],
+    ],
+]); ?>

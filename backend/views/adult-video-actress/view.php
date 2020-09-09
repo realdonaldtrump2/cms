@@ -6,37 +6,40 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\AdultVideoActress */
 
-$this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Adult Video Actresses', 'url' => ['index']];
+$this->title = '女演员详情';
+$this->params['breadcrumbs'][] = ['label' => '女演员列表', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-\yii\web\YiiAsset::register($this);
+
 ?>
-<div class="adult-video-actress-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+<div class="table-responsive">
 
     <?= DetailView::widget([
         'model' => $model,
+        'template' => '<tr><td width="20%" ><label>{label}</label></td><td width="80%" >{value}</td></tr>',
         'attributes' => [
-            'id',
+            [
+                'attribute' => 'avatar',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return '<img class="avatar-image" src="data:image/png;base64,' . $model->avatar . '" >';
+                }
+            ],
             'name',
             'raw_name',
             'pinyin',
-            'avatar:ntext',
-            'is_delete',
-            'create_datetime',
-            'update_datetime',
+            'adultVideoActressDetail.describe',
+            [
+                'attribute' => 'adultVideoActressDetail.information',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    $html = '';
+                    foreach ($model->adultVideoActressDetail->information as $key => $value) {
+                        $html .= '<span>' . $key . '</span>：';
+                        $html .= '<span>' . $value . '</span><br>';
+                    }
+                    return $html;
+                }
+            ],
         ],
     ]) ?>
 
