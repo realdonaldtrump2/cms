@@ -6,23 +6,12 @@ use yii\widgets\ActiveForm;
 use yii\widgets\LinkPager;
 use yii\widgets\DetailView;
 
-
 /* @var $this yii\web\View */
 /* @var $model common\models\AdultVideoActress */
 
 $this->title = '女演员详情';
 $this->params['breadcrumbs'][] = ['label' => '女演员列表', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-
-$url = Url::to(["site/modify-info"]);
-
-$this->registerJs("
-
-    $.get('{$url}', {}, function (html) {
-        $('#ajaxRenderContainer').html(html);
-    });
-
-", \yii\web\View::POS_END);
 
 ?>
 <div class="table-responsive">
@@ -58,14 +47,3 @@ $this->registerJs("
     ]) ?>
 
 </div>
-
-<div id="ajaxRenderContainer" >
-
-
-</div>
-
-<?=
-LinkPager::widget([
-    'pagination' => $pages,
-]);
-?>
