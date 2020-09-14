@@ -3,10 +3,13 @@
 namespace backend\controllers;
 
 use Yii;
+use yii\data\Pagination;
 use yii\web\NotFoundHttpException;
 use yii\web\UnauthorizedHttpException;
 use common\models\AdultVideoActress;
+use common\models\AdultVideoActressWork;
 use backend\models\AdultVideoActressSearch;
+use backend\models\AdultVideoActressWorkSearch;
 
 
 /**
@@ -57,8 +60,11 @@ class AdultVideoActressController extends BaseController
      */
     public function actionIndex()
     {
+
         $searchModel = new AdultVideoActressSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+//        dd($dataProvider->pagination);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -74,10 +80,17 @@ class AdultVideoActressController extends BaseController
      */
     public function actionView($id)
     {
+//        $data = AdultVideoActressWork::find();  //User为model层,在控制器刚开始use了field这个model,这儿可以直接写Field,开头大小写都可以,为了规范,我写的是大写
+//        $pages = new Pagination(['totalCount' => $data->count(), 'pageSize' => '10']);    //实例化分页类,带上参数(总条数,每页显示条数)
+//
+//        dd($pages);
+
         return $this->render('view', [
+            'pages' => $pages,
             'model' => $this->findModel($id),
         ]);
     }
+
 
     /**
      * Creates a new AdultVideoActress model.

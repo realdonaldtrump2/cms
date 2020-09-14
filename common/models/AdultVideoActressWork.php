@@ -13,10 +13,13 @@ use yii2tech\ar\softdelete\SoftDeleteBehavior;
 /**
  * This is the model class for table "adult_video_actress_work".
  *
- * @property int $id 编号
+ * @property int $id 主键
  * @property int $adult_video_actress_id adult_video_actress表id
+ * @property string $title 标题
  * @property string $cover 封面
+ * @property string $cover_url 封面图片
  * @property string $designation 番号
+ * @property string $information 信息
  * @property string $publish_datetime 发布时间
  * @property int $duration 时长
  * @property int $is_delete 删除状态 0正常 1删除

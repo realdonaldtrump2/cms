@@ -4,7 +4,6 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 $this->title = '错误';
-
 $this->context->layout = 'function';
 
 ?>

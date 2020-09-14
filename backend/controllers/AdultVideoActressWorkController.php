@@ -56,13 +56,19 @@ class AdultVideoActressWorkController extends BaseController
      */
     public function actionIndex()
     {
+
+        if (Yii::$app->request->isAjax) {
+
+
+        }
+
         $searchModel = new AdultVideoActressWorkSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
+
     }
 
     /**

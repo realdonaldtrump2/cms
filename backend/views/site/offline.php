@@ -4,7 +4,6 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 $this->title = '维护中';
-
 $this->context->layout = 'function';
 
 ?>

@@ -2,6 +2,7 @@
 
 namespace backend\models;
 
+use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use common\models\AdultVideoActressWork;
@@ -11,14 +12,15 @@ use common\models\AdultVideoActressWork;
  */
 class AdultVideoActressWorkSearch extends AdultVideoActressWork
 {
+
+
     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['id', 'adult_video_actress_id', 'duration', 'is_delete'], 'integer'],
-            [['title', 'cover', 'cover_url', 'designation', 'information', 'publish_datetime', 'create_datetime', 'update_datetime'], 'safe'],
+            [['title', 'designation'], 'safe'],
         ];
     }
 
@@ -43,36 +45,33 @@ class AdultVideoActressWorkSearch extends AdultVideoActressWork
         $query = AdultVideoActressWork::find();
 
         // add conditions that should always apply here
-
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pageSize' => isset($params['per-page']) ? $params['per-page'] : Yii::$app->params['perPage'],
+            ],
+            'sort' => [
+                'defaultOrder' => [
+                    'id' => SORT_DESC,
+                ]
+            ],
         ]);
 
         $this->load($params);
 
         if (!$this->validate()) {
-            // uncomment the following line if you do not want to return any records when validation fails
-            // $query->where('0=1');
             return $dataProvider;
         }
 
-        // grid filtering conditions
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'adult_video_actress_id' => $this->adult_video_actress_id,
-            'publish_datetime' => $this->publish_datetime,
-            'duration' => $this->duration,
-            'is_delete' => $this->is_delete,
-            'create_datetime' => $this->create_datetime,
-            'update_datetime' => $this->update_datetime,
-        ]);
+        $query->andFilterWhere(['like', 'title', trim($this->title)]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'cover', $this->cover])
-            ->andFilterWhere(['like', 'cover_url', $this->cover_url])
-            ->andFilterWhere(['like', 'designation', $this->designation])
-            ->andFilterWhere(['like', 'information', $this->information]);
+        $query->andFilterWhere(['like', 'designation', trim($this->designation)]);
+
+        $query->andFilterWhere(['=', 'is_delete', 0]);
 
         return $dataProvider;
+
     }
+
+
 }

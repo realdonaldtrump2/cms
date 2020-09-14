@@ -195,7 +195,8 @@
     "lustre/php-dfa-sensitive": "^1.4",
     "jaeger/querylist-rule-baidu": "^4.0",
     "liesauer/ql-plugin-bingsearcher": "^4.0",
-    "pcrov/jsonreader": "^1.0"
+    "pcrov/jsonreader": "^1.0",
+    "ext-json": "*"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "~2.1.0",
