@@ -5,7 +5,6 @@ namespace backend\controllers;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\web\Response;
-
 use common\models\AreaProvince;
 use common\models\AreaCity;
 use common\models\AreaDistrict;
@@ -24,7 +23,6 @@ class AreaController extends BaseController
     {
 
         Yii::$app->response->format = Response::FORMAT_JSON;
-
         $behaviors = parent::behaviors();
         return $behaviors;
 
