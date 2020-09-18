@@ -27,7 +27,7 @@ use common\models\ArticleCategory;
 
 <?= $form->field($model, 'title')->textInput() ?>
 
-<?= $form->field($model, 'category')->widget(TreeViewInput::className(), [
+<?= $form->field($model, 'article_category_id')->widget(TreeViewInput::className(), [
     'query' => ArticleCategory::find()->addOrderBy('root, lft'),
     'multiple' => false,
 ]) ?>

@@ -13,8 +13,10 @@ use yii2tech\ar\softdelete\SoftDeleteBehavior;
 /**
  * This is the model class for table "article".
  *
- * @property int $id 编号
+ * @property int $id 主键
  * @property int $user_id 文章作者
+ * @property int $article_category_id 文章分类id
+ * @property string $article_tag_id 文章标签id
  * @property string $title 文章标题
  * @property string $describe 文章简介
  * @property string $image_url 文章图片
@@ -37,13 +39,6 @@ class Article extends Base
 
     // 文章内容(小屏幕)
     public $detail_phone;
-
-    // 文章分类
-    public $category;
-
-    // 文章标签
-    public $tag;
-
 
     /**
      * {@inheritdoc}
@@ -90,6 +85,8 @@ class Article extends Base
         return [
             'id' => '编号',
             'user_id' => '文章作者',
+            'article_category_id' => '文章分类',
+            'article_tag_id' => '文章标签',
             'title' => '文章标题',
             'describe' => '文章简介',
             'image_url' => '文章图片',
@@ -104,7 +101,6 @@ class Article extends Base
             'update_datetime' => '最后更新时间',
             'detail' => '文章内容(大屏幕)',
             'detail_phone' => '文章内容(小屏幕)',
-            'category' => '文章分类',
         ];
     }
 
@@ -115,8 +111,8 @@ class Article extends Base
     public function scenarios()
     {
         return [
-            'create' => ['title', 'describe', 'sort', 'is_recommend', 'is_show', 'detail', 'detail_phone', 'category'],
-            'update' => ['title', 'describe', 'sort', 'is_recommend', 'is_show', 'detail', 'detail_phone', 'category'],
+            'create' => ['title', 'describe', 'sort', 'is_recommend', 'is_show', 'detail', 'detail_phone', 'article_category_id', 'article_tag_id'],
+            'update' => ['title', 'describe', 'sort', 'is_recommend', 'is_show', 'detail', 'detail_phone', 'article_category_id', 'article_tag_id'],
         ];
     }
 
