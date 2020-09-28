@@ -32,6 +32,8 @@ use common\models\ArticleCategory;
     'multiple' => false,
 ]) ?>
 
+<?= $form->field($model, 'article_tag_id')->checkboxList($model->getArticleTagIdDataList()); ?>
+
 <?= $form->field($model, 'describe')->textarea() ?>
 
 <?= $form->field($model, 'detail')->widget(Richtext::className(), [

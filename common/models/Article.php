@@ -149,6 +149,45 @@ class Article extends Base
     {
         return [
             [
+                'class' => AttributeBehavior::className(),
+                'attributes' => [
+                    Base::EVENT_BEFORE_INSERT => 'user_id',
+                ],
+                'value' => function ($event) {
+                    return Yii::$app->user->id;
+                }
+            ],
+            [
+                'class' => AttributeBehavior::className(),
+                'attributes' => [
+                    Base::EVENT_BEFORE_INSERT => 'image_url',
+                    Base::EVENT_BEFORE_UPDATE => 'image_url',
+                ],
+                'value' => function ($event) {
+                    return [];
+                }
+            ],
+            [
+                'class' => AttributeBehavior::className(),
+                'attributes' => [
+                    Base::EVENT_BEFORE_INSERT => 'file_url',
+                    Base::EVENT_BEFORE_UPDATE => 'file_url',
+                ],
+                'value' => function ($event) {
+                    return [];
+                }
+            ],
+            [
+                'class' => AttributeBehavior::className(),
+                'attributes' => [
+                    Base::EVENT_BEFORE_INSERT => 'video_url',
+                    Base::EVENT_BEFORE_UPDATE => 'video_url',
+                ],
+                'value' => function ($event) {
+                    return [];
+                }
+            ],
+            [
                 'class' => TimestampBehavior::className(),
                 'createdAtAttribute' => 'create_datetime',
                 'updatedAtAttribute' => 'update_datetime',
@@ -161,6 +200,28 @@ class Article extends Base
                 ],
             ]
         ];
+    }
+
+
+    /**
+     * @return array
+     */
+    public function getArticleTagIdDataList()
+    {
+
+        $articleTagModelList = ArticleTag::find()
+            ->where([
+                'is_delete' => 0,
+            ])
+            ->all();
+
+        $articleTagIdDataList = [];
+        foreach ($articleTagModelList as $articleTagModel) {
+            $articleTagIdDataList[$articleTagModel->id] = $articleTagModel->title;
+        }
+
+        return $articleTagIdDataList;
+
     }
 
 

@@ -6,43 +6,24 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\Article */
 
-$this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
+$this->title = '文章详情';
+$this->params['breadcrumbs'][] = ['label' => '文章列表', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-\yii\web\YiiAsset::register($this);
+
 ?>
-<div class="article-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+<div class="table-responsive">
 
     <?= DetailView::widget([
         'model' => $model,
+        'template' => '<tr><td width="20%" ><label>{label}</label></td><td width="80%" >{value}</td></tr>',
         'attributes' => [
-            'id',
-            'user_id',
             'title',
             'describe',
-            'image_url:url',
-            'file_url:url',
-            'video_url:url',
             'click_count',
             'sort',
             'is_recommend',
             'is_show',
-            'is_delete',
-            'create_datetime',
-            'update_datetime',
         ],
     ]) ?>
 
