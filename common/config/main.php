@@ -48,6 +48,16 @@ return [
             'schemaCacheDuration' => 3600,
             'schemaCache' => 'cache',
         ],
+        'db3' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'mysql:host=114.215.144.144:3308;dbname=mall',
+            'username' => 'apache',
+            'password' => '123456',
+            'charset' => 'utf8mb4',
+            'emulatePrepare' => true,
+            'schemaCacheDuration' => 3600,
+            'schemaCache' => 'cache',
+        ],
         'assetManager' => [
             'bundles' => [
             ],
