@@ -19,7 +19,12 @@
   },
   "minimum-stability": "stable",
   "require": {
-    "php": ">=5.5",
+    "php": ">=7.2",
+    "ext-json": "*",
+    "ext-curl": "*",
+    "ext-bcmath": "*",
+    "ext-mbstring": "*",
+    "ext-libxml": "*",
     "yiisoft/yii2": "~2.0.14",
     "yiisoft/yii2-bootstrap": "~2.0.0",
     "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
@@ -195,8 +200,7 @@
     "lustre/php-dfa-sensitive": "^1.4",
     "jaeger/querylist-rule-baidu": "^4.0",
     "liesauer/ql-plugin-bingsearcher": "^4.0",
-    "pcrov/jsonreader": "^1.0",
-    "ext-json": "*"
+    "pcrov/jsonreader": "^1.0"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "~2.1.0",

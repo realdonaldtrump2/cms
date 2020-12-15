@@ -231,6 +231,7 @@ $(document).ready(function () {
     });
 
     if(!isMobile.any()) {
+
         var tableColumnListHtml = '';
         $('div.table-responsive table thead tr th').each(function (index) {
             if (index > 0 && index < $('table thead tr th').length - 1) {
@@ -239,6 +240,7 @@ $(document).ready(function () {
                 tableColumnListHtml += '</li>';
             }
         });
+
         $('.searchFormSwitch').after('<div class="btn-group" style="margin-bottom: 5px;"><a class="btn btn-primary dropdown-toggle" data-toggle="dropdown">显示隐藏字段 <span class="caret"></span></a><ul class="dropdown-menu">' + tableColumnListHtml + '</ul></div>');
 
         $('.tableColumnCheckbox').click(function (e) {
