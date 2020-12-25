@@ -50,9 +50,9 @@ return [
         ],
         'db3' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=114.215.144.144:3308;dbname=mall',
-            'username' => 'apache',
-            'password' => '123456',
+            'dsn' => 'mysql:host=8.131.251.74:3306;dbname=mall',
+            'username' => 'root',
+            'password' => '588489866e504de295f346e090f9d887',
             'charset' => 'utf8mb4',
             'emulatePrepare' => true,
             'schemaCacheDuration' => 3600,
